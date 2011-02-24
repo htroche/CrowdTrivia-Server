@@ -1,0 +1,38 @@
+<h1>Questions for puzzle: <%=h @puzzle.name%> </h1>
+
+<%if @puzzle.questions.count > 0%>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer1</th>
+    <th>Answer2</th>
+    <th>Answer3</th>
+    <th>Answer4</th>
+    <th>Correct answer</th>
+    <th>Puzzle</th>
+    <th>Difficulty</th>
+  </tr>
+
+<% @puzzle.questions.each do |question| %>
+  <tr>
+    <td><%=h question.question %></td>
+    <td><%=h question.answer1 %></td>
+    <td><%=h question.answer2 %></td>
+    <td><%=h question.answer3 %></td>
+    <td><%=h question.answer4 %></td>
+    <td><%=h question.correct_answer %></td>
+    <td><%=h question.puzzle.name %></td>
+    <td><%=h question.difficulty %></td>
+	<td><%= link_to 'Show', [@puzzle, question] %></td>
+    <td><%= link_to 'Edit', edit_puzzle_question_path(@puzzle, question) %></td>
+    <td><%= link_to 'Destroy', [@puzzle, question], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%end%>
+
+<br />
+
+<%= link_to 'New question', new_puzzle_question_path(@puzzle) %>

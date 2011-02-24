@@ -1,0 +1,39 @@
+<h1>Editing question</h1>
+
+<% form_for([@puzzle, @question]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </p>
+  <p>
+    <%= f.label :answer1 %><br />
+    <%= f.text_field :answer1 %>
+  </p>
+  <p>
+    <%= f.label :answer2 %><br />
+    <%= f.text_field :answer2 %>
+  </p>
+  <p>
+    <%= f.label :answer3 %><br />
+    <%= f.text_field :answer3 %>
+  </p>
+  <p>
+    <%= f.label :answer4 %><br />
+    <%= f.text_field :answer4 %>
+  </p>
+  <p>
+    <%= f.label :correct_answer %><br />
+    <%= f.text_field :correct_answer %>
+  </p>
+  <p>
+    <%= f.label :difficulty %><br />
+    <%= f.text_field :difficulty %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', @puzzle %>

@@ -1,0 +1,41 @@
+<h1>Question for puzzle:<%=h @puzzle.name%> </h1>
+
+<p>
+  <b>Question:</b>
+  <%=h @question.question %>
+</p>
+
+<p>
+  <b>Answer1:</b>
+  <%=h @question.answer1 %>
+</p>
+
+<p>
+  <b>Answer2:</b>
+  <%=h @question.answer2 %>
+</p>
+
+<p>
+  <b>Answer3:</b>
+  <%=h @question.answer3 %>
+</p>
+
+<p>
+  <b>Answer4:</b>
+  <%=h @question.answer4 %>
+</p>
+
+<p>
+  <b>Correct answer:</b>
+  <%=h @question.correct_answer %>
+</p>
+
+<p>
+  <b>Difficulty:</b>
+  <%=h @question.difficulty %>
+</p>
+
+<%= link_to 'Edit', edit_puzzle_question_path(@puzzle, @question) %> | 
+<%= link_to 'Destroy', [@puzzle, @question], :confirm => 'Are you sure?', :method => :delete %>
+
+<%= link_to 'Back', @puzzle %>
