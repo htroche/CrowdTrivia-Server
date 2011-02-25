@@ -1,3 +1,5 @@
+require 'csv'
+
 class PuzzlesController < ApplicationController
   # GET /puzzles
   # GET /puzzles.xml
@@ -86,4 +88,46 @@ class PuzzlesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def upload
+    @puzzle = Puzzle.find(params[:id])
+    @parsed_file=CSV::Reader.parse(params[:dump])
+    n=0
+    @parsed_file.each  do |row|
+     questions = [row[1], row[2], row[3], row[4]].sort_by{rand}
+     q = Question.new
+     q.question = row[0]
+     q.answer1 = questions[0]
+     q.answer2 = questions[1]
+     q.answer3 = questions[2]
+     q.answer4 = questions[3]
+     if(q.answer1 == row[1])
+       q.correct_answer = 1;
+     end
+     if(q.answer2 == row[1])
+        q.correct_answer = 2;
+     end
+     if(q.answer3 == row[1])
+        q.correct_answer = 3;
+     end
+     if(q.answer4 == row[1])
+        q.correct_answer = 4;
+     end  
+     q.puzzle_id = @puzzle.id
+     q.difficulty = row[6]
+     q.save
+     n=n+1
+    end
+    respond_to do |format|
+      if @puzzle.update_attributes(params[:puzzle])
+        flash[:notice] = 'Puzzle was successfully updated'
+        format.html { redirect_to(@puzzle) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @puzzle.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
 end

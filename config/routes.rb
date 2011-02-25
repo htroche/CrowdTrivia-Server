@@ -1,6 +1,9 @@
 TriviaBettingServer::Application.routes.draw do
 
   resources :puzzles  do
+    member do
+       post 'upload'
+     end
     resources :questions
   end
   # The priority is based upon order of creation:

@@ -1,5 +1,11 @@
 <p>
+  <b>FacebookID:</b>
   <%= @puzzle.facebookID %>
+</p>
+
+<p>
+   <b>Product Identifier:</b>
+  <%= @puzzle.product_identifier %>
 </p>
 
 <p>
@@ -60,3 +66,8 @@
 <%= link_to 'Edit', edit_puzzle_path(@puzzle) %> |
 <%= link_to 'Back', puzzles_path %> |
 <%= link_to 'New question', new_puzzle_question_path(@puzzle) %>
+
+<%=  form_tag({:action  => :upload}, :multipart  => true) do %>
+  <%= file_field_tag 'dump' %>
+<%=  submit_tag("Upload") %>
+<% end %>

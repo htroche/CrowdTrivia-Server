@@ -1,11 +1,15 @@
 <h1>New puzzle</h1>
 
 <% form_for(@puzzle) do |f| %>
-  <%= f.error_messages %>
 
   <p>
     <%= f.label :facebookID %><br />
     <%= f.text_field :facebookID %>
+  </p>
+
+  <p>
+    <%= f.label :product_identifier %><br />
+    <%= f.text_field :product_identifier %>
   </p>
 
   <p>

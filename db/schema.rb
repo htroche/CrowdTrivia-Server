@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221072929) do
+ActiveRecord::Schema.define(:version => 20110225095146) do
 
   create_table "puzzles", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110221072929) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "facebookID"
+    t.string   "product_identifier"
   end
 
   create_table "questions", :force => true do |t|
