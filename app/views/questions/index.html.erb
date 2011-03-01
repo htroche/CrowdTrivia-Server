@@ -26,7 +26,7 @@
     <td><%=h question.difficulty %></td>
 	<td><%= link_to 'Show', [@puzzle, question] %></td>
     <td><%= link_to 'Edit', edit_puzzle_question_path(@puzzle, question) %></td>
-    <td><%= link_to 'Destroy', [@puzzle, question], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Destroy', [@puzzle, question], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

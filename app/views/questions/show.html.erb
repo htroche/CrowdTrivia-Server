@@ -36,6 +36,6 @@
 </p>
 
 <%= link_to 'Edit', edit_puzzle_question_path(@puzzle, @question) %> | 
-<%= link_to 'Destroy', [@puzzle, @question], :confirm => 'Are you sure?', :method => :delete %>
+<%= button_to 'Destroy',[@puzzle, @question], :confirm => 'Are you sure?', :method => :delete %>
 
 <%= link_to 'Back', @puzzle %>

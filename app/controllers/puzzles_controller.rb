@@ -82,7 +82,7 @@ class PuzzlesController < ApplicationController
   def destroy
     @puzzle = Puzzle.find(params[:id])
     @puzzle.destroy
-
+    flash[:notice] = 'Puzzle was successfully deleted.'
     respond_to do |format|
       format.html { redirect_to(puzzles_url) }
       format.xml  { head :ok }
