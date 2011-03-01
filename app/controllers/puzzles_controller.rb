@@ -96,7 +96,7 @@ class PuzzlesController < ApplicationController
     @parsed_file.each  do |row|
      questions = [row[1], row[2], row[3], row[4]].sort_by{rand}
      q = Question.new
-     q.question = row[0]
+     q.quiz_question = row[0]
      q.answer1 = questions[0]
      q.answer2 = questions[1]
      q.answer3 = questions[2]
