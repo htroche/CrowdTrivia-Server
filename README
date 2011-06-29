@@ -11,4 +11,4 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-The app does have any security at the moment, that if for you to add. In the live version of the app I implemented two security mechanisms, a basic HTTP authentication mechanism and a HMAC-SHA1 header verification to make sure that only the iPhone clients can make calls to the server.
+The app does have any security, that is for you to add. In the live version of the app I implemented two security mechanisms, a basic HTTP authentication mechanism and a HMAC-SHA1 header verification to make sure that only the iPhone clients can make calls to the server.
